@@ -77,8 +77,15 @@ class AuthController extends Controller
         $user->tokens()->delete();
 
         return response()->json([
-            'status' => true,
             'message' => "Log out Sucessfull",
+        ],200);
+    }
+
+    public function getUser(){
+        $user = User::all();
+        return response()->json([
+            'status' => true,
+            "user"=>$user,
         ],200);
     }
 }
